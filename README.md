@@ -1,20 +1,6 @@
-# 写在前面
 
-我花了将近一个多月的时间断断续续写下这篇博文，并精心写下完整demo，所以转载务必保留 http://blog.haoji.me/chrome-plugin-develop.html 。本文所有涉及到的大部分代码均在这个demo里面：https://github.com/sxei/chrome-plugin-demo ，大家可以直接下载下来运行。
-
-另外，本文图片较多，请耐心等待加载完毕。
-
-本文目录：
 
 ![](http://image.liuxianan.com/201707/20170710_222547_735_9922.png)
-
-demo部分截图：
-
-![](http://image.liuxianan.com/201707/20170710_223150_516_6129.png)
-
-鉴于有很多网友有交流学习Chrome插件的诉求，所以最近建了一个插件开发交流群，仅仅是为了提供一个互相交流学习的平台：
-
-![_W791xH370_](https://img.alicdn.com/tfs/TB1rvUrJpY7gK0jSZKzXXaikpXa-1582-740.png)
 
 ## 仓库说明
 
@@ -67,10 +53,6 @@ Chrome插件提供了很多实用API供我们使用，包括但不限于：
 Chrome插件没有严格的项目结构要求，只要保证本目录有一个`manifest.json`即可，也不需要专门的IDE，普通的web开发工具即可。
 
 从右上角菜单->更多工具->扩展程序可以进入 插件管理页面，也可以直接在地址栏输入 [chrome://extensions](chrome://extensions/) 访问。
-
-![](http://image.liuxianan.com/201706/20170620_195047_992_5668.png)
-
-勾选`开发者模式`即可以文件夹的形式直接加载插件，否则只能安装`.crx`格式的文件。Chrome要求插件必须从它的Chrome应用商店安装，其它任何网站下载的都无法直接安装，所以，其实我们可以把`crx`文件解压，然后通过开发者模式直接加载。
 
 开发中，代码有任何改动都必须重新加载插件，只需要在插件管理页按下`Ctrl+R`即可，以防万一最好还把页面刷新一下。
 
@@ -273,7 +255,6 @@ background的权限非常高，几乎可以调用所有的Chrome扩展API（除�
 
 `popup`是点击`browser_action`或者`page_action`图标时打开的一个小窗口网页，焦点离开网页就立即关闭，一般用来做一些临时性的交互。
 
-![博客园网摘插件popup效果](http://image.liuxianan.com/201706/20170619_161102_335_9254.png)
 
 `popup`可以包含任意你想要的HTML内容，并且会自适应大小。可以通过`default_popup`字段来指定popup页面，也可以调用`setPopup()`方法。
 
@@ -290,8 +271,6 @@ background的权限非常高，几乎可以调用所有的Chrome扩展API（除�
 	}
 }
 ```
-
-![](http://image.liuxianan.com/201705/20170531_172243_007_2793.png)
 
 需要特别注意的是，由于单击图标打开popup，焦点离开又立即关闭，所以popup页面的生命周期一般很短，需要长时间运行的代码千万不要写在popup里面。
 
